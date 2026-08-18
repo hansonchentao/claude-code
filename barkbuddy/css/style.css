@@ -387,7 +387,8 @@ p {
 .product-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: var(--white);
     transition: var(--transition);
 }
 
@@ -556,6 +557,14 @@ p {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+.video-embed {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    background-color: #000;
+}
+
 .video-thumbnail {
     position: relative;
     width: 100%;
@@ -598,7 +607,7 @@ p {
 }
 
 .video-card h4 {
-    padding: 1.5rem 1.5rem 0.5rem;
+    padding: 1.5rem;
 }
 
 .video-card p {
@@ -676,6 +685,11 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+}
+
+.contact-grid.single-contact {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-item {
