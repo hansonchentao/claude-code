@@ -243,6 +243,47 @@ p {
     text-align: center;
 }
 
+.hero.has-video {
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero.has-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(8, 54, 101, 0.72), rgba(15, 91, 143, 0.52));
+}
+
+.hero.has-video .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero.has-video p {
+    margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-video {
+        display: none;
+    }
+}
+
 .hero h2 {
     color: var(--white);
     font-size: 2.5rem;
@@ -537,11 +578,26 @@ p {
 }
 
 /* 视频网格 */
+.video-category {
+    margin-top: 3rem;
+}
+
+.video-category + .video-category {
+    padding-top: 3rem;
+    border-top: 1px solid #dbe5ef;
+}
+
+.video-category-title {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    text-align: left;
+}
+
 .videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .video-card {
@@ -642,6 +698,9 @@ p {
     padding: 2rem;
     transition: var(--transition);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .manual-card:hover {
@@ -655,24 +714,8 @@ p {
 }
 
 .manual-card h4 {
-    margin-bottom: 1rem;
-}
-
-.manual-card p {
-    color: var(--dark-gray);
     margin-bottom: 1.5rem;
-}
-
-.manual-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-}
-
-.manual-size {
-    color: var(--dark-gray);
-    font-size: 0.9rem;
+    flex-grow: 1;
 }
 
 /* 联系信息 */
